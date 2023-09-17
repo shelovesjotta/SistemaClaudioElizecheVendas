@@ -19,7 +19,7 @@ import javax.swing.text.MaskFormatter;
 
 /**
  *
- * @author ninoc
+ * @author claudio
  */
 public class jDlgCjrCliente extends javax.swing.JDialog {
 
@@ -38,7 +38,7 @@ public class jDlgCjrCliente extends javax.swing.JDialog {
     public jDlgCjrCliente(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        Util.habilitar(false);
+        Util.habilitar(false, jTxtCodigo, jTxtNome, jTxtEmail, jFmtCpf, jFmtTelefone, jFmtDatadeNascimento, jTxtSexo, jTxtEndereco, jTxtCidade, jTxtEstado, jFmtCep, jTxtNumeroCasa, jFmtDatadeCadastro, jTxtSaldoCarteira, jTxtObservacoes, jBtnConfirmar, jBtnCancelar);
         setTitle("Clientes");
         setLocationRelativeTo(null);
         try {
@@ -495,7 +495,8 @@ public class jDlgCjrCliente extends javax.swing.JDialog {
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
         // TODO add your handling code here:
-         Util.habilitar(true);
+        Util.habilitar(true, jTxtCodigo, jTxtNome, jTxtEmail, jFmtCpf, jFmtTelefone, jFmtDatadeNascimento, jTxtSexo, jTxtEndereco, jTxtCidade, jTxtEstado, jFmtCep, jTxtNumeroCasa, jFmtDatadeCadastro, jTxtSaldoCarteira, jTxtObservacoes, jBtnCancelar, jBtnConfirmar);
+        Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
         incluindo = false;
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
@@ -508,14 +509,16 @@ public class jDlgCjrCliente extends javax.swing.JDialog {
         } else {
             cliente_DAO.update(cjrcliente);
         }
-        Util.habilitar(false, jBtnConfirmar);
+        Util.habilitar(false, jTxtCodigo, jTxtNome, jTxtEmail, jFmtCpf, jFmtTelefone, jFmtDatadeNascimento, jTxtSexo, jTxtEndereco, jTxtCidade, jTxtEstado, jFmtCep, jTxtNumeroCasa, jFmtDatadeCadastro, jTxtSaldoCarteira, jTxtObservacoes, jBtnCancelar, jBtnConfirmar);
+        Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
         Util.limparCampos(jFmtDatadeCadastro, jTxtCodigo, jTxtNome, jTxtEmail, jFmtCpf, jFmtDatadeNascimento, jTxtSexo, jFmtTelefone, jTxtEndereco, jTxtCidade, jTxtEstado, jFmtCep, jTxtNumeroCasa, jTxtSaldoCarteira, jTxtObservacoes);
 
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(false, jBtnCancelar);
+        Util.habilitar(false, jTxtCodigo, jTxtNome, jTxtEmail, jFmtCpf, jFmtTelefone, jFmtDatadeNascimento, jTxtSexo, jTxtEndereco, jTxtCidade, jTxtEstado, jFmtCep, jTxtNumeroCasa, jFmtDatadeCadastro, jTxtSaldoCarteira, jTxtObservacoes, jBtnCancelar, jBtnConfirmar);
+        Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
         Util.limparCampos(jFmtDatadeCadastro, jTxtCodigo, jTxtNome, jTxtEmail, jFmtCpf, jFmtDatadeNascimento, jTxtSexo, jFmtTelefone, jTxtEndereco, jTxtCidade, jTxtEstado, jFmtCep, jTxtNumeroCasa, jTxtSaldoCarteira, jTxtObservacoes);
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 

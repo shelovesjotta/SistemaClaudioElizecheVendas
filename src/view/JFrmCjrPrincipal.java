@@ -6,7 +6,7 @@ package view;
 
 /**
  *
- * @author marcelbenitezdasilva
+ * @author Junior
  */
 public class JFrmCjrPrincipal extends javax.swing.JFrame {
 

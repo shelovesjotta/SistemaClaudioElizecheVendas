@@ -36,18 +36,18 @@ import javax.swing.table.AbstractTableModel;
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        CjrUsuarios usuarios = (CjrUsuarios) lista.get(rowIndex);
+        CjrUsuarios cjrusuarios = (CjrUsuarios) lista.get(rowIndex);
         if( columnIndex == 0){
-            return usuarios.getCjrIdUsuario();
+            return cjrusuarios.getCjrIdUsuario();
         }
         if( columnIndex == 1){
-            return usuarios.getCjrNome();
+            return cjrusuarios.getCjrNome();
         }
         if( columnIndex == 2){
-            return usuarios.getCjrApelido();
+            return cjrusuarios.getCjrApelido();
         }
         if( columnIndex == 3){
-            return usuarios.getCjrCpf();
+            return cjrusuarios.getCjrCpf();
         }
         
         return "";

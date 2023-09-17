@@ -72,18 +72,18 @@ public class CjrUsuarios_DAO extends DAO_Abstract {
     public Object buscarLogin(String apelido, String senha) {
         CjrUsuarios cjrusuarios = null;
 
-        String url = "jdbc:mysql://10.7.0.51:33062/db_claudio_elizeche";
-        String user = "claudio_elizeche";
-        String password = "claudio_elizeche";
+//        String url = "jdbc:mysql://10.7.0.51:33062/db_claudio_elizeche";
+//        String user = "claudio_elizeche";
+//        String password = "claudio_elizeche";
 
-        //String url = "jdbc:mysql://127.0.0.1:3306/db_claudio_elizeche";
-        //String user = "root";
-        //String password = "";
+        String url = "jdbc:mysql://127.0.0.1:3306/db_claudio_elizeche";
+        String user = "root";
+        String password = "";
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection cnt = DriverManager.getConnection(url, user, password);
 
-            String sql = "SELECT * FROM usuarios WHERE apelido = ? AND senha = ?";
+            String sql = "SELECT * FROM cjr_usuarios WHERE cjr_apelido = ? AND cjr_senha = ?";
             PreparedStatement pstm = cnt.prepareStatement(sql);
             pstm.setString(1, apelido);
             pstm.setString(2, senha);

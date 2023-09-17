@@ -31,7 +31,7 @@ public class jDlgCjrUsuarios extends javax.swing.JDialog {
     public jDlgCjrUsuarios(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        Util.habilitar(false);
+        Util.habilitar(false, jTxtCodigo, jTxtNome, jTxtApelido, jFmtCpf, jFmtDatadeNascimento, jPwfSenha, jCboNivel, jChbAtivo, jBtnConfirmar, jBtnCancelar);
         setTitle("Cadastro de usuários");
         setLocationRelativeTo(null);
         setTitle("Usuários");
@@ -72,17 +72,17 @@ public class jDlgCjrUsuarios extends javax.swing.JDialog {
         return  cjrusuarios; //retorna do bean 
     }
 
-    public void beanView( CjrUsuarios usuarios) { //seta o atributo do view obtendo do bean
-        String valor = String.valueOf(usuarios.getCjrIdUsuario());
+    public void beanView( CjrUsuarios cjrusuarios) {             //seta o atributo do view obtendo do bean
+        String valor = String.valueOf(cjrusuarios.getCjrIdUsuario());
         jTxtCodigo.setText(valor);
-        jTxtNome.setText(usuarios.getCjrNome());
-        jTxtApelido.setText(usuarios.getCjrApelido());
-        jFmtCpf.setText(usuarios.getCjrCpf());
+        jTxtNome.setText(cjrusuarios.getCjrNome());
+        jTxtApelido.setText(cjrusuarios.getCjrApelido());
+        jFmtCpf.setText(cjrusuarios.getCjrCpf());
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        jFmtDatadeNascimento.setText( formato.format( usuarios.getCjrDataNascimento() ) );
-        jPwfSenha.setText(usuarios.getCjrSenha());
-        jCboNivel.setSelectedIndex(usuarios.getCjrNivel());
-        if (usuarios.getCjrAtivo().equals("S") == true) {
+        jFmtDatadeNascimento.setText( formato.format( cjrusuarios.getCjrDataNascimento() ) );
+        jPwfSenha.setText(cjrusuarios.getCjrSenha());
+        jCboNivel.setSelectedIndex(cjrusuarios.getCjrNivel());
+        if (cjrusuarios.getCjrAtivo().equals("S") == true) {
             jChbAtivo.setSelected(true);
         } else {
             jChbAtivo.setSelected(false);
@@ -333,7 +333,7 @@ public class jDlgCjrUsuarios extends javax.swing.JDialog {
 
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
         // TODO add your handling code here:
-        Util.habilitar( true, jTxtCodigo, jTxtNome, jTxtApelido, jFmtCpf, jFmtDatadeNascimento, jPwfSenha, jCboNivel, jChbAtivo, jBtnCancelar, jBtnConfirmar);
+        Util.habilitar(true, jTxtCodigo, jTxtNome, jTxtApelido, jFmtCpf, jFmtDatadeNascimento, jPwfSenha, jCboNivel, jChbAtivo, jBtnConfirmar, jBtnCancelar);
         Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
         Util.limparCampos(jTxtCodigo, jTxtNome, jTxtApelido, jFmtCpf, jFmtDatadeNascimento, jPwfSenha, jCboNivel, jChbAtivo);
         incluindo = true;
@@ -341,7 +341,8 @@ public class jDlgCjrUsuarios extends javax.swing.JDialog {
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(true, jTxtCodigo, jTxtNome, jTxtApelido, jFmtCpf, jFmtDatadeNascimento, jPwfSenha, jCboNivel, jChbAtivo, jBtnCancelar, jBtnConfirmar);
+        Util.habilitar(true, jTxtCodigo, jTxtNome, jTxtApelido, jFmtCpf, jFmtDatadeNascimento, jPwfSenha, jCboNivel, jChbAtivo, jBtnConfirmar, jBtnCancelar);
+        Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
         incluindo = false;
         setLocationRelativeTo(null);
     }//GEN-LAST:event_jBtnAlterarActionPerformed
@@ -355,7 +356,8 @@ public class jDlgCjrUsuarios extends javax.swing.JDialog {
         } else {
             cjrusuarios_DAO.update(cjrusuarios);
         }
-        Util.habilitar(false, jBtnConfirmar);
+        Util.habilitar(false, jTxtCodigo, jTxtNome, jTxtApelido, jFmtCpf, jFmtDatadeNascimento, jPwfSenha, jCboNivel, jChbAtivo, jBtnConfirmar, jBtnCancelar);
+        Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
         Util.limparCampos(jTxtCodigo, jTxtNome, jTxtApelido, jFmtCpf, jFmtDatadeNascimento, jPwfSenha, jCboNivel, jChbAtivo);
         
 
@@ -363,7 +365,8 @@ public class jDlgCjrUsuarios extends javax.swing.JDialog {
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(false, jBtnCancelar);
+        Util.habilitar(false, jTxtCodigo, jTxtNome, jTxtApelido, jFmtCpf, jFmtDatadeNascimento, jPwfSenha, jCboNivel, jChbAtivo, jBtnConfirmar, jBtnCancelar);
+        Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
         jBtnPesquisar.setEnabled(true);
         jBtnIncluir.setEnabled(true);
 

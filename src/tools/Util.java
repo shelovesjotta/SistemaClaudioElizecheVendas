@@ -39,9 +39,14 @@ public class Util {
    
 
     public static boolean perguntar(String cadeia) {
-        JOptionPane.showConfirmDialog(null, cadeia, "Perguntar", JOptionPane.YES_NO_OPTION);
-
-        return false;
+        //JOptionPane.showConfirmDialog(null, cadeia, "Perguntar", JOptionPane.YES_NO_OPTION);
+        int resp = JOptionPane.showConfirmDialog(null, "Deseja excluir o registro",
+                "confirmar", JOptionPane.YES_NO_OPTION);
+        if (resp == JOptionPane.YES_OPTION) {
+            return true;
+        } else {
+            return false;
+        }
     }
     
     public static void mensagem(String cadeia) {
