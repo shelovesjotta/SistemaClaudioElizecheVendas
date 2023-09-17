@@ -17,7 +17,7 @@ import tools.Util;
 
 /**
  *
- * @author marcelbenitezdasilva
+ * @author claudiojunior
  */
 public class jDlgCjrUsuarios extends javax.swing.JDialog {
 

@@ -13,7 +13,7 @@ import javax.swing.JTable;
 
 /**
  *
- * @author u07103394105
+ * @author u71661414176
  */
 public class jDlgCjrUsuariosPesquisa extends javax.swing.JDialog {
 

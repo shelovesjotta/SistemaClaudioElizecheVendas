@@ -10,7 +10,7 @@ import javax.swing.table.AbstractTableModel;
 
 /**
  *
- * @author u07103394105
+ * @author 71661414176
  */
 public class CjrClienteControle extends AbstractTableModel {
     
