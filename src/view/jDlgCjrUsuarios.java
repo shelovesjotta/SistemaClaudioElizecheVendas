@@ -48,7 +48,7 @@ public class jDlgCjrUsuarios extends javax.swing.JDialog {
 
     public CjrUsuarios viewBean() { //seta o atributo do bean pegando do view  
         CjrUsuarios cjrusuarios = new CjrUsuarios();
-        int id = Integer.valueOf(jTxtCodigo.getText());
+       int id = Util.strInt(jTxtCodigo.getText());
          cjrusuarios.setCjrIdUsuario(id);
          cjrusuarios.setCjrNome(jTxtNome.getText());
          cjrusuarios.setCjrApelido(jTxtApelido.getText());
@@ -73,7 +73,7 @@ public class jDlgCjrUsuarios extends javax.swing.JDialog {
     }
 
     public void beanView( CjrUsuarios cjrusuarios) {             //seta o atributo do view obtendo do bean
-        String valor = String.valueOf(cjrusuarios.getCjrIdUsuario());
+        String valor = Util.intStr(cjrusuarios.getCjrIdUsuario());
         jTxtCodigo.setText(valor);
         jTxtNome.setText(cjrusuarios.getCjrNome());
         jTxtApelido.setText(cjrusuarios.getCjrApelido());

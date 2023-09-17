@@ -17,7 +17,7 @@ import javax.swing.JTable;
  */
 public class jDlgCjrUsuariosPesquisa extends javax.swing.JDialog {
 
-    private jDlgCjrUsuarios jDlgCjrUsuarios;
+    private jDlgCjrUsuarios jDlgUsuarios;
     private CjrUsuariosControle cjrusuariosControle;
     
     
@@ -38,7 +38,7 @@ public class jDlgCjrUsuariosPesquisa extends javax.swing.JDialog {
     
     public void setTelaAnterior(jDlgCjrUsuarios jDlgUsuarios){
         
-        this.jDlgCjrUsuarios = jDlgCjrUsuarios;
+        this.jDlgUsuarios = jDlgUsuarios;
     
     }
 
@@ -116,7 +116,7 @@ public class jDlgCjrUsuariosPesquisa extends javax.swing.JDialog {
     private void jBtnokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnokActionPerformed
        int rowSel = jTblTabelausuarios.getSelectedRow();
        CjrUsuarios cjrusuarios = cjrusuariosControle.getBean(rowSel);
-       jDlgCjrUsuarios.beanView(cjrusuarios);
+       jDlgUsuarios.beanView(cjrusuarios);
        setVisible(false);
     }//GEN-LAST:event_jBtnokActionPerformed
 

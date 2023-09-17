@@ -5,8 +5,7 @@
  */
 package dao;
 
-import bean.CjrCliente;
-import tools.HibernateUtil;
+
 import bean.CjrUsuarios;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -53,11 +52,11 @@ public class CjrUsuarios_DAO extends DAO_Abstract {
     @Override
     public Object list(int id) {
         session.beginTransaction();
-        Criteria criteria = session.createCriteria(CjrUsuarios.class); // representa select * from usuarios só que no sistema orientado objeto
-        criteria.add(Restrictions.eq("cjrIdUsuario", id)); //representa  usuarios só where id só que no sistema orientado objeto
+        Criteria criteria = session.createCriteria(CjrUsuarios.class); 
+        criteria.add(Restrictions.eq("cjrIdUsuario", id)); 
         List lista = criteria.list();
         session.getTransaction().commit();
-        return null;
+        return lista;
     }
 
     @Override
