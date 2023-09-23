@@ -5,11 +5,10 @@
  */
 package dao;
 
-
 import bean.CjrUsuarios;
-import java.sql.Connection;
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -52,8 +51,8 @@ public class CjrUsuarios_DAO extends DAO_Abstract {
     @Override
     public Object list(int id) {
         session.beginTransaction();
-        Criteria criteria = session.createCriteria(CjrUsuarios.class); 
-        criteria.add(Restrictions.eq("cjrIdUsuario", id)); 
+        Criteria criteria = session.createCriteria(CjrUsuarios.class);
+        criteria.add(Restrictions.eq("cjrIdUsuario", id));
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;
@@ -68,6 +67,7 @@ public class CjrUsuarios_DAO extends DAO_Abstract {
         return lista;
     }
 
+    
     public Object buscarLogin(String apelido, String senha) {
         CjrUsuarios cjrusuarios = null;
 
@@ -78,12 +78,13 @@ public class CjrUsuarios_DAO extends DAO_Abstract {
         String url = "jdbc:mysql://127.0.0.1:3306/db_claudio_elizeche";
         String user = "root";
         String password = "";
+        
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection cnt = DriverManager.getConnection(url, user, password);
+            Connection cnt = (Connection) DriverManager.getConnection(url, user, password);
 
             String sql = "SELECT * FROM cjr_usuarios WHERE cjr_apelido = ? AND cjr_senha = ?";
-            PreparedStatement pstm = cnt.prepareStatement(sql);
+            PreparedStatement pstm = (PreparedStatement) cnt.prepareStatement(sql);
             pstm.setString(1, apelido);
             pstm.setString(2, senha);
 
@@ -107,5 +108,13 @@ public class CjrUsuarios_DAO extends DAO_Abstract {
 
         return cjrusuarios;
     }
-    
+     
+    public static void main(String[] args) {
+        CjrUsuarios_DAO cjrUsuarios_DAO = new CjrUsuarios_DAO();
+        List lista = cjrUsuarios_DAO.listAll();
+        for (Object object : lista) {
+            System.out.println(((CjrUsuarios)object).getCjrNome());
+        }
+        System.out.println("fim");
+    }
 }

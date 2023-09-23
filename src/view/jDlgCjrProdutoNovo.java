@@ -5,6 +5,10 @@
  */
 package view;
 
+import controles.CjrProdutoControle;
+import bean.CjrProduto;
+import dao.CjrProduto_DAO;
+import java.util.List;
 import tools.Util;
 
 /**
@@ -13,18 +17,31 @@ import tools.Util;
  */
 public class jDlgCjrProdutoNovo extends javax.swing.JDialog {
 
-    jDlgCjrProdutoNovoIA jDlgCjrProdutosNovoIA;
+    private boolean incluindo;
+    jDlgCjrProdutoNovoIA jDlgCjrProdutoNovoIA;
+    CjrProduto_DAO cjrProduto_DAO;
+    CjrProduto cjrProduto;
+    CjrProdutoControle cjrProdutoControle;
     /**
      * Creates new form JDlgUsuariosNovo
+     * @param parent
+     * @param modal
      */
     public jDlgCjrProdutoNovo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setTitle("Cadastro de Produtos");
         setLocationRelativeTo(null);
-        jDlgCjrProdutosNovoIA = new jDlgCjrProdutoNovoIA(null, true);
-
+        
+        jDlgCjrProdutoNovoIA = new jDlgCjrProdutoNovoIA(null, true);
+        cjrProduto_DAO = new CjrProduto_DAO();
+        List lista = cjrProduto_DAO.listAll();
+        cjrProdutoControle = new CjrProdutoControle();
+        cjrProdutoControle.setList(lista);
+        jTable1.setModel(cjrProdutoControle);
     }
+    
+  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -41,6 +58,9 @@ public class jDlgCjrProdutoNovo extends javax.swing.JDialog {
         jBtnIncluir = new javax.swing.JButton();
         jBtnAlterar = new javax.swing.JButton();
         jBtnExcluir = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -52,13 +72,14 @@ public class jDlgCjrProdutoNovo extends javax.swing.JDialog {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Codigo", "Nome", "Preço", "Quantidade"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        jBtnIncluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/incluir_preto.png"))); // NOI18N
         jBtnIncluir.setText("Incluir");
         jBtnIncluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,6 +88,7 @@ public class jDlgCjrProdutoNovo extends javax.swing.JDialog {
         });
         jPanel1.add(jBtnIncluir);
 
+        jBtnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/alterar_preto.png"))); // NOI18N
         jBtnAlterar.setText("Alterar");
         jBtnAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,6 +97,7 @@ public class jDlgCjrProdutoNovo extends javax.swing.JDialog {
         });
         jPanel1.add(jBtnAlterar);
 
+        jBtnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cancelar_preto.png"))); // NOI18N
         jBtnExcluir.setText("Excluir");
         jBtnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,18 +106,46 @@ public class jDlgCjrProdutoNovo extends javax.swing.JDialog {
         });
         jPanel1.add(jBtnExcluir);
 
+        jLabel17.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel17.setText("Cadastro de Produtos");
+
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_cadastro.png"))); // NOI18N
+
+        jLabel20.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel20.setText("Instrumentaliza Vendas");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(184, 184, 184)
+                .addComponent(jLabel19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel17)
+                .addContainerGap(224, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel20)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel17))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(jLabel19)))
+                .addGap(36, 36, 36)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
+                .addComponent(jLabel20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -103,20 +154,42 @@ public class jDlgCjrProdutoNovo extends javax.swing.JDialog {
 
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
         // TODO add your handling code here:
-        jDlgCjrProdutosNovoIA.setTitle("Inclução");
-        jDlgCjrProdutosNovoIA.setVisible(true);
+        jDlgCjrProdutoNovoIA.setTitle("Inclusão");
+        jDlgCjrProdutoNovoIA.setIncluindo(true);
+        jDlgCjrProdutoNovoIA.setVisible(true);
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
         // TODO add your handling code here:
-        jDlgCjrProdutosNovoIA.setTitle("Alteração");
-        jDlgCjrProdutosNovoIA.setVisible(true);
+  
+        jDlgCjrProdutoNovoIA.setTitle("Alteração");
+        jDlgCjrProdutoNovoIA.setIncluindo(false);
+        jDlgCjrProdutoNovoIA.setVisible(true);
+        int rowSel = jTable1.getSelectedRow();
+        if (rowSel != -1) {
+            CjrProduto cjrprodutos = cjrProdutoControle.getBean(rowSel);
+
+            jDlgCjrProdutoNovoIA alterar = new jDlgCjrProdutoNovoIA(null, true);
+            alterar.beanView(cjrprodutos);
+            
+            alterar.setVisible(true);
+        } else {
+            Util.mensagem("Selecione um Registro para poder ser Alterado.");
+        }
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
-        if (Util.perguntar("Deseja excluir o usuário") == true) {
-        
+        if (Util.perguntar("Deseja excluir o registro?")) {
+            int sel = jTable1.getSelectedRow();
+            cjrProduto = cjrProdutoControle.getBean(sel);
+            cjrProduto_DAO.delete(cjrProduto);
+            
+            List lista = cjrProduto_DAO.listAll();
+            cjrProdutoControle.setList(lista);
+            Util.mensagem("Registro excluído com sucesso.");
+        } else {
+            Util.mensagem("Exclusão cancelada.");
         }
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
@@ -169,6 +242,9 @@ public class jDlgCjrProdutoNovo extends javax.swing.JDialog {
     private javax.swing.JButton jBtnAlterar;
     private javax.swing.JButton jBtnExcluir;
     private javax.swing.JButton jBtnIncluir;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

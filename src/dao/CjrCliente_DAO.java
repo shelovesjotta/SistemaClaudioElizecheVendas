@@ -61,5 +61,17 @@ public class CjrCliente_DAO extends DAO_Abstract {
         session.getTransaction().commit();
         return lista;
     }
+    public static void main(String[] args) {
+        
+    
+        CjrCliente_DAO cjrUsuarios_DAO = new CjrCliente_DAO();
+        List lista = cjrUsuarios_DAO.listAll();
+        
+        
+        for (Object object : lista) {
+            System.out.println(((CjrCliente)object).getCjrNome());
+        }
+        System.out.println("fim");
+    }
     
 }

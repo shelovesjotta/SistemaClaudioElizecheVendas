@@ -65,9 +65,15 @@ public class Util {
     }
 
     public static double strDouble(String cad) {
-        
-        return Double.parseDouble(cad);
+        try {
+            return Double.parseDouble(cad);
+        } catch (NumberFormatException e) {
+            // Trate o erro de conversão aqui (por exemplo, exiba uma mensagem de erro)
+            e.printStackTrace();
+            return 0.0; // Ou retorne um valor padrão adequado
+        }
     }
+
 
     public static String doubleStr(double num) {
        

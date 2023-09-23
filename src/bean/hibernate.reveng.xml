@@ -41,10 +41,10 @@ Contributor(s):
 -->
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="db_claudio_elizeche"/>
-  <table-filter match-name="cjr_funcionario"/>
+  <table-filter match-name="cjr_venda"/>
   <table-filter match-name="cjr_cliente"/>
   <table-filter match-name="cjr_usuarios"/>
   <table-filter match-name="cjr_venda_produto"/>
-  <table-filter match-name="cjr_venda"/>
+  <table-filter match-name="cjr_funcionario"/>
   <table-filter match-name="cjr_produto"/>
 </hibernate-reverse-engineering>

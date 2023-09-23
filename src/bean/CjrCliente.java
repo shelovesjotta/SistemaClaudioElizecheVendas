@@ -1,15 +1,17 @@
 package bean;
-// Generated 14/09/2023 13:54:22 by Hibernate Tools 4.3.1
-
+// Generated Sep 20, 2023 3:04:46 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -24,7 +26,7 @@ import javax.persistence.TemporalType;
 public class CjrCliente  implements java.io.Serializable {
 
 
-     private int cjrIdCliente;
+     private Integer cjrIdCliente;
      private String cjrNome;
      private String cjrEmail;
      private String cjrCpf;
@@ -37,35 +39,32 @@ public class CjrCliente  implements java.io.Serializable {
      private String cjrCep;
      private String cjrNumeroCasa;
      private Date cjrDataCadastro;
-     private String cjrSaldoCarteira;
+     private double cjrSaldoCarteira;
      private String cjrObservacoes;
 
     public CjrCliente() {
     }
 
 	
-    public CjrCliente(String cjrNome, String cjrEmail, String cjrCpf, String cjrTelefone, Date cjrDataNasc, String cjrSexo, String cjrEndereco, String cjrCidade, String cjrEstado, String cjrCep, String cjrNumeroCasa, Date cjrDataCadastro, String cjrSaldoCarteira, String cjrObservacoes) {
-       this.cjrNome = cjrNome;
-       this.cjrEmail = cjrEmail;
-       this.cjrCpf = cjrCpf;
-       this.cjrTelefone = cjrTelefone;
-       this.cjrDataNasc = cjrDataNasc;
-       this.cjrSexo = cjrSexo;
-       this.cjrEndereco = cjrEndereco;
-       this.cjrCidade = cjrCidade;
-       this.cjrEstado = cjrEstado;
-       this.cjrCep = cjrCep;
-       this.cjrNumeroCasa = cjrNumeroCasa;
-       this.cjrDataCadastro = cjrDataCadastro;
-       this.cjrSaldoCarteira = cjrSaldoCarteira;
-       this.cjrObservacoes = cjrObservacoes;
+    public CjrCliente(String cjrNome, String cjrEmail, String cjrCpf, String cjrTelefone, String cjrSexo, String cjrEndereco, String cjrCidade, String cjrEstado, String cjrCep, String cjrNumeroCasa) {
+        this.cjrNome = cjrNome;
+        this.cjrEmail = cjrEmail;
+        this.cjrCpf = cjrCpf;
+        this.cjrTelefone = cjrTelefone;
+        this.cjrSexo = cjrSexo;
+        this.cjrEndereco = cjrEndereco;
+        this.cjrCidade = cjrCidade;
+        this.cjrEstado = cjrEstado;
+        this.cjrCep = cjrCep;
+        this.cjrNumeroCasa = cjrNumeroCasa;
     }
+    
    
      @Id @GeneratedValue(strategy=IDENTITY)
 
     
     @Column(name="cjr_idCliente", unique=true, nullable=false)
-    public int getCjrIdCliente() {
+    public Integer getCjrIdCliente() {
         return this.cjrIdCliente;
     }
     
@@ -195,11 +194,11 @@ public class CjrCliente  implements java.io.Serializable {
 
     
     @Column(name="cjr_saldo_carteira", precision=9)
-    public String getCjrSaldoCarteira() {
+    public double getCjrSaldoCarteira() {
         return this.cjrSaldoCarteira;
     }
     
-    public void setCjrSaldoCarteira(String cjrSaldoCarteira) {
+    public void setCjrSaldoCarteira(double cjrSaldoCarteira) {
         this.cjrSaldoCarteira = cjrSaldoCarteira;
     }
 
@@ -212,6 +211,9 @@ public class CjrCliente  implements java.io.Serializable {
     public void setCjrObservacoes(String cjrObservacoes) {
         this.cjrObservacoes = cjrObservacoes;
     }
+
+
+
 }
 
 

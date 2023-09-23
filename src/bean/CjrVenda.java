@@ -1,9 +1,9 @@
 package bean;
-// Generated 14/09/2023 13:54:22 by Hibernate Tools 4.3.1
-
+// Generated Sep 20, 2023 3:04:46 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +13,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -27,36 +28,40 @@ import javax.persistence.TemporalType;
 public class CjrVenda  implements java.io.Serializable {
 
 
-     private int cjrIdVenda;
+     private Integer cjrIdVenda;
      private CjrCliente cjrCliente;
      private CjrFuncionario cjrFuncionario;
      private Date cjrDataVenda;
      private double cjrValorTotal;
-     private String cjrQuantidadeVenda;
-
+     private String cjrQuantidadeVenda;    
 
     public CjrVenda() {
     }
 
 	
-  
+    public CjrVenda(Date cjrDataVenda, double cjrValorTotal, String cjrQuantidadeVenda) {
+        this.cjrDataVenda = cjrDataVenda;
+        this.cjrValorTotal = cjrValorTotal;
+        this.cjrQuantidadeVenda = cjrQuantidadeVenda;
+    }
     public CjrVenda(CjrCliente cjrCliente, CjrFuncionario cjrFuncionario, Date cjrDataVenda, double cjrValorTotal, String cjrQuantidadeVenda) {
        this.cjrCliente = cjrCliente;
        this.cjrFuncionario = cjrFuncionario;
        this.cjrDataVenda = cjrDataVenda;
        this.cjrValorTotal = cjrValorTotal;
        this.cjrQuantidadeVenda = cjrQuantidadeVenda;
+
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
 
     
     @Column(name="cjr_idVenda", unique=true, nullable=false)
-    public int getCjrIdVenda() {
+    public Integer getCjrIdVenda() {
         return this.cjrIdVenda;
     }
     
-    public void setCjrIdVenda(int cjrIdVenda) {
+    public void setCjrIdVenda(Integer cjrIdVenda) {
         this.cjrIdVenda = cjrIdVenda;
     }
 
@@ -109,6 +114,7 @@ public class CjrVenda  implements java.io.Serializable {
     public void setCjrQuantidadeVenda(String cjrQuantidadeVenda) {
         this.cjrQuantidadeVenda = cjrQuantidadeVenda;
     }
+
 }
 
 

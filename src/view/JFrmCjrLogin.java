@@ -8,6 +8,7 @@ package view;
 import bean.CjrUsuarios;
 import dao.CjrUsuarios_DAO;
 import javax.swing.JOptionPane;
+import tools.Util;
 
 /**
  *
@@ -20,7 +21,7 @@ public class JFrmCjrLogin extends javax.swing.JFrame {
      */
     public JFrmCjrLogin() {
         initComponents();
-        setTitle("Login Instrumentaliza");
+        setTitle("Login Instrumentaliza Vendas");
         setLocationRelativeTo(null);
     }
     
@@ -90,42 +91,47 @@ public class JFrmCjrLogin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(69, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jBtnAcessar)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jBtnCancelar))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTxtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel1)
-                                .addComponent(jLabel2)
-                                .addComponent(jPwfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(54, 54, 54))))
-                .addGap(63, 63, 63))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel3)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jPwfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(83, 83, 83))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(jBtnAcessar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jBtnCancelar))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(133, 133, 133)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jTxtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(47, 47, 47)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTxtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(20, 20, 20)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPwfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBtnAcessar)
                     .addComponent(jBtnCancelar))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         pack();
@@ -144,7 +150,7 @@ public class JFrmCjrLogin extends javax.swing.JFrame {
         CjrUsuarios_DAO cjrusuarioDAO = new CjrUsuarios_DAO();
         
         if (cjrusuarioDAO.buscarLogin(apelido, senha) != null) {
-            JOptionPane.showMessageDialog(null, "Usuário logado com sucesso!");
+            Util.mensagem("Usuário logado com sucesso!");
 
             JFrmCjrPrincipal JFrmPrincipal = new JFrmCjrPrincipal();
             JFrmPrincipal.setVisible(true);
@@ -152,10 +158,10 @@ public class JFrmCjrLogin extends javax.swing.JFrame {
             contadorTentativas = 0; 
         } else {
             contadorTentativas++;
-            JOptionPane.showMessageDialog(null, "Usuário e/ou senha inválidos! Tentativa " + contadorTentativas + "/3");
+             Util.mensagem("Usuário e/ou senha inválidos! Tentativa " + contadorTentativas + "/3");
 
             if (contadorTentativas >= 3) {
-                JOptionPane.showMessageDialog(null, "Você excedeu o número máximo de tentativas. O programa será encerrado.");
+                 Util.mensagem("Você excedeu o número máximo de tentativas. O programa será encerrado.");
                 System.exit(0);
             }
 

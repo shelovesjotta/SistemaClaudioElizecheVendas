@@ -1,13 +1,16 @@
 package bean;
-// Generated 14/09/2023 13:54:22 by Hibernate Tools 4.3.1
+// Generated Sep 20, 2023 3:04:46 PM by Hibernate Tools 4.3.1
 
 
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -25,7 +28,7 @@ public class CjrFuncionario  implements java.io.Serializable {
      private String cjrEndereco;
      private String cjrCpf;
      private String cjrApelido;
-   
+     
 
     public CjrFuncionario() {
     }
@@ -37,7 +40,7 @@ public class CjrFuncionario  implements java.io.Serializable {
         this.cjrCpf = cjrCpf;
         this.cjrApelido = cjrApelido;
     }
-    
+
    
      @Id @GeneratedValue(strategy=IDENTITY)
 
@@ -90,6 +93,8 @@ public class CjrFuncionario  implements java.io.Serializable {
     public void setCjrApelido(String cjrApelido) {
         this.cjrApelido = cjrApelido;
     }
+
+
 }
 
 

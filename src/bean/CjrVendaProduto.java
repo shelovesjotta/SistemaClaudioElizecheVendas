@@ -1,8 +1,8 @@
 package bean;
-// Generated 14/09/2023 13:54:22 by Hibernate Tools 4.3.1
+// Generated Sep 20, 2023 3:04:46 PM by Hibernate Tools 4.3.1
 
 
-
+import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -23,17 +23,21 @@ import javax.persistence.Table;
 public class CjrVendaProduto  implements java.io.Serializable {
 
 
-     private int cjrIdVendaProduto;
+     private Integer cjrIdVendaProduto;
      private CjrProduto cjrProduto;
      private CjrVenda cjrVenda;
      private int cjrQuantidade;
-     private double cjrValorUnitario;
+     private BigDecimal cjrValorUnitario;
 
     public CjrVendaProduto() {
     }
 
 	
-    public CjrVendaProduto(CjrProduto cjrProduto, CjrVenda cjrVenda, int cjrQuantidade, double cjrValorUnitario) {
+    public CjrVendaProduto(int cjrQuantidade, BigDecimal cjrValorUnitario) {
+        this.cjrQuantidade = cjrQuantidade;
+        this.cjrValorUnitario = cjrValorUnitario;
+    }
+    public CjrVendaProduto(CjrProduto cjrProduto, CjrVenda cjrVenda, int cjrQuantidade, BigDecimal cjrValorUnitario) {
        this.cjrProduto = cjrProduto;
        this.cjrVenda = cjrVenda;
        this.cjrQuantidade = cjrQuantidade;
@@ -44,11 +48,11 @@ public class CjrVendaProduto  implements java.io.Serializable {
 
     
     @Column(name="cjr_idVenda_produto", unique=true, nullable=false)
-    public int getCjrIdVendaProduto() {
+    public Integer getCjrIdVendaProduto() {
         return this.cjrIdVendaProduto;
     }
     
-    public void setCjrIdVendaProduto(int cjrIdVendaProduto) {
+    public void setCjrIdVendaProduto(Integer cjrIdVendaProduto) {
         this.cjrIdVendaProduto = cjrIdVendaProduto;
     }
 
@@ -84,11 +88,11 @@ public class CjrVendaProduto  implements java.io.Serializable {
 
     
     @Column(name="cjr_valor_unitario", nullable=false, precision=10)
-    public double getCjrValorUnitario() {
+    public BigDecimal getCjrValorUnitario() {
         return this.cjrValorUnitario;
     }
     
-    public void setCjrValorUnitario(double cjrValorUnitario) {
+    public void setCjrValorUnitario(BigDecimal cjrValorUnitario) {
         this.cjrValorUnitario = cjrValorUnitario;
     }
 

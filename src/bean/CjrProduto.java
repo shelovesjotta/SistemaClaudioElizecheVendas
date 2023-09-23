@@ -1,8 +1,8 @@
 package bean;
-// Generated 14/09/2023 13:54:22 by Hibernate Tools 4.3.1
+// Generated Sep 20, 2023 3:04:46 PM by Hibernate Tools 4.3.1
 
 
-
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,8 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -27,35 +26,36 @@ public class CjrProduto  implements java.io.Serializable {
      private int cjrIdProduto;
      private String cjrNome;
      private String cjrDescricao;
-     private String cjrPreco;
+     private double cjrPreco;
      private int cjrQuantidade;
      private String cjrTipo;
-     
+     private int cjrCategoria;
+
 
     public CjrProduto() {
     }
 
 	
-    public CjrProduto(String cjrNome, String cjrDescricao, String cjrPreco, int cjrQuantidade, String cjrTipo) {
+    public CjrProduto(String cjrNome, String cjrDescricao, double cjrPreco, int cjrQuantidade, String cjrTipo) {
         this.cjrNome = cjrNome;
         this.cjrDescricao = cjrDescricao;
         this.cjrPreco = cjrPreco;
         this.cjrQuantidade = cjrQuantidade;
         this.cjrTipo = cjrTipo;
     }
-  
    
      @Id @GeneratedValue(strategy=IDENTITY)
 
     
     @Column(name="cjr_idProduto", unique=true, nullable=false)
-    public int getCjrIdProduto() {
+    public Integer getCjrIdProduto() {
         return this.cjrIdProduto;
     }
     
-    public void setCjrIdProduto(int cjrIdProduto) {
+    public void setCjrIdProduto(Integer cjrIdProduto) {
         this.cjrIdProduto = cjrIdProduto;
     }
+
     
     @Column(name="cjr_nome", nullable=false, length=45)
     public String getCjrNome() {
@@ -78,11 +78,11 @@ public class CjrProduto  implements java.io.Serializable {
 
     
     @Column(name="cjr_preco", nullable=false, precision=9)
-    public String getCjrPreco() {
+    public double getCjrPreco() {
         return this.cjrPreco;
     }
     
-    public void setCjrPreco(String cjrPreco) {
+    public void setCjrPreco(double cjrPreco) {
         this.cjrPreco = cjrPreco;
     }
 
@@ -105,6 +105,19 @@ public class CjrProduto  implements java.io.Serializable {
     public void setCjrTipo(String cjrTipo) {
         this.cjrTipo = cjrTipo;
     }
+
+    
+    @Column(name="cjr_categoria")
+    public int getCjrCategoria() {
+        return this.cjrCategoria;
+    }
+    
+    public void setCjrCategoria(int cjrCategoria) {
+        this.cjrCategoria = cjrCategoria;
+    }
+
+
+
 }
 
 
