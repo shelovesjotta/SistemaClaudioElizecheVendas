@@ -4,6 +4,8 @@
  */
 package view;
 
+import query.jDlgCjrConsultaUsuarios;
+
 /**
  *
  * @author Junior
@@ -40,6 +42,8 @@ public class JFrmCjrPrincipal extends javax.swing.JFrame {
         jMnuSair = new javax.swing.JMenuItem();
         jMnuMovimento = new javax.swing.JMenu();
         jMnuVendas = new javax.swing.JMenuItem();
+        jMnuConsultas = new javax.swing.JMenu();
+        jMnuUsuariosConsulta = new javax.swing.JMenuItem();
 
         jMenuItem2.setText("jMenuItem2");
 
@@ -121,6 +125,18 @@ public class JFrmCjrPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMnuMovimento);
 
+        jMnuConsultas.setText("Consultas ");
+
+        jMnuUsuariosConsulta.setText("Usuarios");
+        jMnuUsuariosConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMnuUsuariosConsultaActionPerformed(evt);
+            }
+        });
+        jMnuConsultas.add(jMnuUsuariosConsulta);
+
+        jMenuBar1.add(jMnuConsultas);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -178,6 +194,12 @@ public class JFrmCjrPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMnuPrincipalActionPerformed
 
+    private void jMnuUsuariosConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnuUsuariosConsultaActionPerformed
+        // TODO add your handling code here:
+        jDlgCjrConsultaUsuarios jDlgCjrConsultaUsuarios = new jDlgCjrConsultaUsuarios(null, true);
+        jDlgCjrConsultaUsuarios.setVisible(true);
+    }//GEN-LAST:event_jMnuUsuariosConsultaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -233,12 +255,14 @@ public class JFrmCjrPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMnuClientes;
+    private javax.swing.JMenu jMnuConsultas;
     private javax.swing.JMenuItem jMnuFuncionarios;
     private javax.swing.JMenu jMnuMovimento;
     private javax.swing.JMenu jMnuPrincipal;
     private javax.swing.JMenuItem jMnuProdutos;
     private javax.swing.JMenuItem jMnuSair;
     private javax.swing.JMenuItem jMnuUsuarios;
+    private javax.swing.JMenuItem jMnuUsuariosConsulta;
     private javax.swing.JMenuItem jMnuVendas;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     // End of variables declaration//GEN-END:variables

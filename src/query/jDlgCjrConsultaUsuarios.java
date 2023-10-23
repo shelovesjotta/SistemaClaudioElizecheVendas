@@ -14,14 +14,14 @@ import view.jDlgCjrUsuarios;
  *
  * @author USER
  */
-public class jDlgConsultaUsuarios extends javax.swing.JDialog {
+public class jDlgCjrConsultaUsuarios extends javax.swing.JDialog {
     private jDlgCjrUsuarios jDlgUsuarios;
     private CjrUsuariosControle cjrusuariosControle;
     private CjrUsuarios_DAO cjrusuarios_DAO;
     /**
      * Creates new form jDlgConsultaUsuarios
      */
-    public jDlgConsultaUsuarios(java.awt.Frame parent, boolean modal) {
+    public jDlgCjrConsultaUsuarios(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
@@ -172,20 +172,21 @@ public class jDlgConsultaUsuarios extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(jDlgConsultaUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(jDlgCjrConsultaUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(jDlgConsultaUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(jDlgCjrConsultaUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(jDlgConsultaUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(jDlgCjrConsultaUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(jDlgConsultaUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(jDlgCjrConsultaUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                jDlgConsultaUsuarios dialog = new jDlgConsultaUsuarios(new javax.swing.JFrame(), true);
+                jDlgCjrConsultaUsuarios dialog = new jDlgCjrConsultaUsuarios(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
