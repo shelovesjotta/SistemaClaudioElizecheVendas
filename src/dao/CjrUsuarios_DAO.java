@@ -52,8 +52,8 @@ public class CjrUsuarios_DAO extends DAO_Abstract {
     public Object list(int id) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(CjrUsuarios.class);
-        criteria.add(Restrictions.eq("cjrIdUsuario", id));
-        List lista = criteria.list();
+        criteria.add(Restrictions.eq("cjrIdUsuario", id)); // Seria como o where do sql e o eq é um metodo estatico. ne é not equals.
+        List lista = criteria.list(); //like é quando é parecido, por exemplo se tiver algum nome que começa com mar ele vai pesquisar por meio desse mar.
         session.getTransaction().commit();
         return lista;
     }
@@ -61,23 +61,54 @@ public class CjrUsuarios_DAO extends DAO_Abstract {
     @Override
     public List listAll() {
         session.beginTransaction();
-        Criteria criteria = session.createCriteria(CjrUsuarios.class);
+        Criteria criteria = session.createCriteria(CjrUsuarios.class); //basicamente é o select * from no hibernate.
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;
     }
+     public List listNome(String nome) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(CjrUsuarios.class);
+        criteria.add(Restrictions.like("cjrNome", "%"+nome+"%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+     
+     }
+     
+     public List listCpf(String cpf) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(CjrUsuarios.class);
+        criteria.add(Restrictions.like("cjrCpf", "%" + cpf + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+
+    }
+     
+    public List listNomeCpf(String nome, String cpf) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(CjrUsuarios.class);
+        criteria.add(Restrictions.like("cjrNome", "%" + nome + "%"));
+        criteria.add(Restrictions.like("cjrCpf", "%" + cpf + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+
+    }
+
 
     
     public Object buscarLogin(String apelido, String senha) {
         CjrUsuarios cjrusuarios = null;
 
-//        String url = "jdbc:mysql://10.7.0.51:33062/db_claudio_elizeche";
-//        String user = "claudio_elizeche";
-//        String password = "claudio_elizeche";
+        String url = "jdbc:mysql://10.7.0.51:33062/db_claudio_elizeche";
+        String user = "claudio_elizeche";
+        String password = "claudio_elizeche";
 
-        String url = "jdbc:mysql://127.0.0.1:3306/db_claudio_elizeche";
-        String user = "root";
-        String password = "";
+//        String url = "jdbc:mysql://127.0.0.1:3306/db_claudio_elizeche";
+//        String user = "root";
+//        String password = "";
         
         try {
             Class.forName("com.mysql.jdbc.Driver");
