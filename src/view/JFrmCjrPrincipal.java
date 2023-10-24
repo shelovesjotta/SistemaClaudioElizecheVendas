@@ -127,6 +127,8 @@ public class JFrmCjrPrincipal extends javax.swing.JFrame {
 
         jMnuConsultas.setText("Consultas ");
 
+        jMnuUsuariosConsulta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
+        jMnuUsuariosConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pesquisar_preto.png"))); // NOI18N
         jMnuUsuariosConsulta.setText("Usuarios");
         jMnuUsuariosConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -5,8 +5,9 @@
         <group>
             <file>file:/C:/Users/USER/Desktop/SistemaClaudioElizecheFinal/SistemaClaudioElizeche/src/dao/CjrUsuarios_DAO.java</file>
             <file>file:/C:/Users/USER/Desktop/SistemaClaudioElizecheFinal/SistemaClaudioElizeche/src/controles/CjrUsuariosControle.java</file>
+            <file>file:/C:/Users/USER/Desktop/SistemaClaudioElizecheFinal/SistemaClaudioElizeche/src/view/JFrmCjrPrincipal.java</file>
+            <file>file:/C:/Users/USER/Desktop/SistemaClaudioElizecheFinal/SistemaClaudioElizeche/src/query/jDlgCjrConsultaUsuarios.java</file>
             <file>file:/C:/Users/USER/Desktop/SistemaClaudioElizecheFinal/SistemaClaudioElizeche/src/bean/CjrUsuarios.java</file>
-            <file>file:/C:/Users/USER/Desktop/SistemaClaudioElizecheFinal/SistemaClaudioElizeche/src/query/jDlgConsultaUsuarios.java</file>
         </group>
     </open-files>
 </project-private>
