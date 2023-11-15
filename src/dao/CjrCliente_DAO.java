@@ -10,6 +10,7 @@ import tools.HibernateUtil;
 import bean.CjrCliente;
 import java.util.List;
 import org.hibernate.Criteria;
+import org.hibernate.criterion.Disjunction;
 import org.hibernate.criterion.Restrictions;
 
 /**
@@ -61,6 +62,37 @@ public class CjrCliente_DAO extends DAO_Abstract {
         session.getTransaction().commit();
         return lista;
     }
+    
+    public List listNome(String nome) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(CjrCliente.class);
+        criteria.add(Restrictions.like("cjrNome", "%" + nome + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+    
+    public List listSal(double saldo) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(CjrCliente.class);
+        criteria.add(Restrictions.ge("cjrSaldoCarteira", saldo)); 
+        criteria.add(Restrictions.le("cjrSaldoCarteira", saldo));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+    
+    public List listNomeSal(String nome, double saldo) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(CjrCliente.class);
+        criteria.add(Restrictions.like("cjrNome", "%" + nome + "%"));
+        criteria.add(Restrictions.ge("cjrSaldoCarteira", saldo)); 
+        criteria.add(Restrictions.le("cjrSaldoCarteira", saldo));  
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+    
     public static void main(String[] args) {
         
     

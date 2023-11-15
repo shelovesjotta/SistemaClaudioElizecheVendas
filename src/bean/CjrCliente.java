@@ -211,8 +211,11 @@ public class CjrCliente  implements java.io.Serializable {
     public void setCjrObservacoes(String cjrObservacoes) {
         this.cjrObservacoes = cjrObservacoes;
     }
-
-
+    
+    @Override
+    public String toString() {
+        return getCjrNome();
+    }
 
 }
 

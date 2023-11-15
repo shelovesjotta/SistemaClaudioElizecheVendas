@@ -61,4 +61,34 @@ public class CjrProduto_DAO extends DAO_Abstract {
         return lista;
     }
     
+    public List listNome(String nome) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(CjrProduto.class);
+        criteria.add(Restrictions.like("cjrNome", "%" + nome + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+    
+    public List listCat(double preco) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(CjrProduto.class);
+        criteria.add(Restrictions.ge("cjrPreco", preco));
+        criteria.add(Restrictions.le("cjrPreco", preco));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+    
+    public List listNomeCat(String nome, double preco) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(CjrProduto.class);
+        criteria.add(Restrictions.like("cjrNome", "%" + nome + "%"));
+        criteria.add(Restrictions.ge("cjrPreco", preco));
+        criteria.add(Restrictions.le("cjrPreco", preco));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+    
 }

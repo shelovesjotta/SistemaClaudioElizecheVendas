@@ -18,6 +18,7 @@ import javax.swing.table.AbstractTableModel;
 
         public void setList(List lista){
             this.lista = lista;
+            this.fireTableDataChanged();
         }
 
         public CjrVenda getBean(int row) {
@@ -44,7 +45,7 @@ import javax.swing.table.AbstractTableModel;
                 return cjrvenda.getCjrFuncionario();
             }
             if( columnIndex == 2){
-                return cjrvenda.getCjrQuantidadeVenda();
+                return cjrvenda.getCjrCliente();
             }
             if( columnIndex == 3){
                 return cjrvenda.getCjrValorTotal();
@@ -61,7 +62,7 @@ import javax.swing.table.AbstractTableModel;
                 return "Funcionario";
             }
             if( column == 2){
-                return "Quantidade da venda";
+                return "Cliente";
             }
             if( column == 3){
                 return "Valor total";

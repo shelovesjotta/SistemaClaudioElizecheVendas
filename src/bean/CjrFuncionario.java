@@ -93,6 +93,11 @@ public class CjrFuncionario  implements java.io.Serializable {
     public void setCjrApelido(String cjrApelido) {
         this.cjrApelido = cjrApelido;
     }
+    
+    @Override
+    public String toString() {
+        return getCjrNome();
+    }
 
 
 }

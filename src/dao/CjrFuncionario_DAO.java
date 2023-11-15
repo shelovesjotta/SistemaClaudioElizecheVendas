@@ -61,4 +61,35 @@ public class CjrFuncionario_DAO extends DAO_Abstract {
         return lista;
     }
     
+    public List listNome(String nome) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(CjrFuncionario.class);
+        criteria.add(Restrictions.like("cjrNome", "%" + nome + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+
+    }
+
+    public List listCpf(String cpf) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(CjrFuncionario.class);
+        criteria.add(Restrictions.like("cjrCpf", "%" + cpf + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+
+    }
+
+    public List listNomeCpf(String nome, String cpf) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(CjrFuncionario.class);
+        criteria.add(Restrictions.like("cjrNome", "%" + nome + "%"));
+        criteria.add(Restrictions.like("cjrCpf", "%" + cpf + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+
+    }
+    
 }

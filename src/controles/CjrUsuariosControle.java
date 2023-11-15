@@ -48,7 +48,7 @@ import javax.swing.table.AbstractTableModel;
             return cjrusuarios.getCjrApelido();
         }
         if( columnIndex == 3){
-            return cjrusuarios.getCjrCpf();
+            return cjrusuarios.getCjrDataNascimento();
         }
         
         return "";
@@ -63,10 +63,10 @@ import javax.swing.table.AbstractTableModel;
             return "Nome";
         }
         if( column == 2){
-            return "apelido";
+            return "Apelido";
         }
         if( column == 3){
-            return "cpf";
+            return "Data de Nascimento";
         }
         return "";
     }

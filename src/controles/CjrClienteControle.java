@@ -18,6 +18,7 @@ public class CjrClienteControle extends AbstractTableModel {
     
     public void setList(List lista){
         this.lista = lista;
+        this.fireTableDataChanged();
     }
     
     public CjrCliente getBean(int row) {
@@ -44,7 +45,7 @@ public class CjrClienteControle extends AbstractTableModel {
             return cjrcliente.getCjrNome();
         }
         if( columnIndex == 2){
-            return cjrcliente.getCjrEmail();
+            return cjrcliente.getCjrDataCadastro();
         }
         if( columnIndex == 3){
             return cjrcliente.getCjrSaldoCarteira();
@@ -56,16 +57,16 @@ public class CjrClienteControle extends AbstractTableModel {
     @Override
     public String getColumnName(int column) {
         if( column == 0){
-            return "id";
+            return "ID";
         }
         if( column == 1){
-            return "nome";
+            return "Nome";
         }
         if( column == 2){
-            return "email";
+            return "Data Cadastro";
         }
         if( column == 3){
-            return "saldo da carteira";
+            return "Saldo Disponivel";
         }
         return "";
     }

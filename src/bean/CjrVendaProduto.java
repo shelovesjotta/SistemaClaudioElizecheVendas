@@ -27,17 +27,17 @@ public class CjrVendaProduto  implements java.io.Serializable {
      private CjrProduto cjrProduto;
      private CjrVenda cjrVenda;
      private int cjrQuantidade;
-     private BigDecimal cjrValorUnitario;
+     private double cjrValorUnitario;
 
     public CjrVendaProduto() {
     }
 
 	
-    public CjrVendaProduto(int cjrQuantidade, BigDecimal cjrValorUnitario) {
+    public CjrVendaProduto(int cjrQuantidade, double cjrValorUnitario) {
         this.cjrQuantidade = cjrQuantidade;
         this.cjrValorUnitario = cjrValorUnitario;
     }
-    public CjrVendaProduto(CjrProduto cjrProduto, CjrVenda cjrVenda, int cjrQuantidade, BigDecimal cjrValorUnitario) {
+    public CjrVendaProduto(CjrProduto cjrProduto, CjrVenda cjrVenda, int cjrQuantidade, double cjrValorUnitario) {
        this.cjrProduto = cjrProduto;
        this.cjrVenda = cjrVenda;
        this.cjrQuantidade = cjrQuantidade;
@@ -88,12 +88,17 @@ public class CjrVendaProduto  implements java.io.Serializable {
 
     
     @Column(name="cjr_valor_unitario", nullable=false, precision=10)
-    public BigDecimal getCjrValorUnitario() {
+    public double getCjrValorUnitario() {
         return this.cjrValorUnitario;
     }
     
-    public void setCjrValorUnitario(BigDecimal cjrValorUnitario) {
+    public void setCjrValorUnitario(double cjrValorUnitario) {
         this.cjrValorUnitario = cjrValorUnitario;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString(); //To change body of generated methods, choose Tools | Templates.
     }
 
 

@@ -7,6 +7,7 @@ package dao;
 
 import tools.HibernateUtil;
 import bean.CjrVenda;
+import bean.CjrFuncionario;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
@@ -56,6 +57,37 @@ public class CjrVenda_DAO extends DAO_Abstract {
     public List listAll() {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(CjrVenda.class);
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+    
+    public List listFunc(int Func) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(CjrVenda.class);
+        criteria.add(Restrictions.eq("cjrFuncionario.cjrIdFuncionario", Func));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+    
+    public List listTol(double valor) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(CjrVenda.class);
+        criteria.add(Restrictions.ge("cjrValorTotal", valor));
+        criteria.add(Restrictions.le("cjrValorTotal", valor));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+    
+    public List listFuncTol(int Func, double valor) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(CjrVenda.class);
+        criteria.add(Restrictions.eq("cjrFuncionario.cjrIdFuncionario", Func));
+        criteria.add(Restrictions.ge("cjrValorTotal", valor));
+        criteria.add(Restrictions.le("cjrValorTotal", valor));
+
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;

@@ -19,6 +19,7 @@ import javax.swing.table.AbstractTableModel;
     
     public void setList(List lista){
         this.lista = lista;
+        this.fireTableDataChanged();
     }
     
     public CjrVendaProduto getBean(int row) {
@@ -60,13 +61,13 @@ import javax.swing.table.AbstractTableModel;
             return "ID";
         }
         if( column == 1){
-            return "Nome";
+            return "Quantidade";
         }
         if( column == 2){
-            return "apelido";
+            return "Valor Unitario";
         }
         if( column == 3){
-            return "cpf";
+            return "Venda";
         }
         return "";
     }

@@ -64,7 +64,7 @@ import javax.swing.table.AbstractTableModel;
             return "Nome";
         }
         if( column == 2){
-            return "Cpf";
+            return "CPF";
         }
         if( column == 3){
             return "Endereço";
