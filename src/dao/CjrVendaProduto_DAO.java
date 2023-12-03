@@ -5,6 +5,7 @@
  */
 package dao;
 
+import bean.CjrVenda;
 import tools.HibernateUtil;
 import bean.CjrVendaProduto;
 import tools.Util;
@@ -17,6 +18,15 @@ import org.hibernate.criterion.Restrictions;
  * @author USER
  */
 public class CjrVendaProduto_DAO extends DAO_Abstract{
+    
+    public List listProduto(CjrVenda cjrVenda) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(CjrVendaProduto.class);
+        criteria.add(Restrictions.eq("cjrVenda", cjrVenda));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
 
     @Override
     public void insert(Object object) {
@@ -61,6 +71,7 @@ public class CjrVendaProduto_DAO extends DAO_Abstract{
         session.getTransaction().commit();
         return lista;
     }
+    
    
 
 }

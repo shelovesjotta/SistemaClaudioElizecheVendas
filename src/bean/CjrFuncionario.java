@@ -98,6 +98,16 @@ public class CjrFuncionario  implements java.io.Serializable {
     public String toString() {
         return getCjrNome();
     }
+    
+    public boolean equals(Object object) {
+        if (object instanceof CjrFuncionario) {
+            CjrFuncionario cjrFuncionario = (CjrFuncionario) object;
+            if (this.getCjrIdFuncionario()== cjrFuncionario.getCjrIdFuncionario()) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 
 }

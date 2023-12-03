@@ -116,6 +116,22 @@ public class CjrProduto  implements java.io.Serializable {
         this.cjrCategoria = cjrCategoria;
     }
 
+    @Override
+    public String toString() {
+        return cjrNome; //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public boolean equals(Object object) {
+        if (object instanceof CjrProduto) {
+            CjrProduto cjrProduto = (CjrProduto) object;
+            if (this.getCjrIdProduto()== cjrProduto.getCjrIdProduto()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    
 
 
 }

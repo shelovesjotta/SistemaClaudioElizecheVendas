@@ -40,7 +40,7 @@ import javax.swing.table.AbstractTableModel;
     public Object getValueAt(int rowIndex, int columnIndex) {
         CjrVendaProduto cjrvendaproduto = (CjrVendaProduto) lista.get(rowIndex);
         if( columnIndex == 0){
-            return cjrvendaproduto.getCjrIdVendaProduto();
+            return cjrvendaproduto.getCjrProduto();
         }
         if( columnIndex == 1){
             return cjrvendaproduto.getCjrQuantidade();
@@ -49,16 +49,33 @@ import javax.swing.table.AbstractTableModel;
             return cjrvendaproduto.getCjrValorUnitario();
         }
         if( columnIndex == 3){
-            return cjrvendaproduto.getCjrVenda();
+            return cjrvendaproduto.getCjrQuantidade() * cjrvendaproduto.getCjrValorUnitario();
         }
         
         return "";
     }
     
+    public void addBean(CjrVendaProduto cjrVendaProduto) {
+        lista.add(cjrVendaProduto);
+        this.fireTableDataChanged();
+    }
+    
+    public void removeBean(int index) {
+        if (lista != null && index >= 0 && index < lista.size() ) {
+            lista.remove(index);
+            this.fireTableDataChanged();   
+        }
+    }
+    
+    public void updateBean(int index, CjrVendaProduto cjrVendaProduto) {
+        lista.set(index, cjrVendaProduto);
+        this.fireTableDataChanged();
+    }
+    
     @Override
     public String getColumnName(int column) {
         if( column == 0){
-            return "ID";
+            return "Produto";
         }
         if( column == 1){
             return "Quantidade";
@@ -67,7 +84,7 @@ import javax.swing.table.AbstractTableModel;
             return "Valor Unitario";
         }
         if( column == 3){
-            return "Venda";
+            return "Total";
         }
         return "";
     }

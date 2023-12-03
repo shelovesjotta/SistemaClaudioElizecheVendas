@@ -216,7 +216,16 @@ public class CjrCliente  implements java.io.Serializable {
     public String toString() {
         return getCjrNome();
     }
-
+    
+    public boolean equals(Object object) {
+        if (object instanceof  CjrCliente) {
+            CjrCliente cjrCliente = (CjrCliente) object;
+            if (this.getCjrIdCliente() == cjrCliente.getCjrIdCliente()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
 
