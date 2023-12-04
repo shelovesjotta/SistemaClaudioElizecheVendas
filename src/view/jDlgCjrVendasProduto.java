@@ -138,6 +138,11 @@ public class jDlgCjrVendasProduto extends javax.swing.JDialog {
                 jCboProdutoItemStateChanged(evt);
             }
         });
+        jCboProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCboProdutoActionPerformed(evt);
+            }
+        });
 
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos_2.png"))); // NOI18N
 
@@ -275,6 +280,10 @@ public class jDlgCjrVendasProduto extends javax.swing.JDialog {
     private void jTxtTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtTotalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTxtTotalActionPerformed
+
+    private void jCboProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCboProdutoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCboProdutoActionPerformed
 
     /**
      * @param args the command line arguments

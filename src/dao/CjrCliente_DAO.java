@@ -47,11 +47,11 @@ public class CjrCliente_DAO extends DAO_Abstract {
     @Override
     public Object list(int id) {
         session.beginTransaction();
-        Criteria criteria = session.createCriteria(CjrCliente.class); // representa select * from usuarios só que no sistema orientado objeto
-        criteria.add(Restrictions.eq("cjrIdCliente", id)); //representa  usuarios só where id só que no sistema orientado objeto
-        List lista = criteria.list();
+        Criteria criteria = session.createCriteria(CjrCliente.class);
+        criteria.add(Restrictions.eq("cjrIdCliente", id));
+        Object cliente = criteria.uniqueResult(); //UniqueResult() para buscar um único resultado
         session.getTransaction().commit();
-        return null;
+        return cliente;
     }
 
     @Override
@@ -76,7 +76,7 @@ public class CjrCliente_DAO extends DAO_Abstract {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(CjrCliente.class);
         criteria.add(Restrictions.ge("cjrSaldoCarteira", saldo)); 
-        criteria.add(Restrictions.le("cjrSaldoCarteira", saldo));
+        criteria.add(Restrictions.le("cjrSaldoCarteira", saldo)); 
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;

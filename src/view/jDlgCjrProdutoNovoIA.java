@@ -87,7 +87,6 @@ public class jDlgCjrProdutoNovoIA extends javax.swing.JDialog {
     private void initComponents() {
 
         jLabel6 = new javax.swing.JLabel();
-        jTxtQuantidade = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
         jTxtCodigo = new javax.swing.JTextField();
         jTxtNome = new javax.swing.JTextField();
@@ -102,6 +101,7 @@ public class jDlgCjrProdutoNovoIA extends javax.swing.JDialog {
         jTxtTipo4 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
+        jTxtQuantidade = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -147,6 +147,12 @@ public class jDlgCjrProdutoNovoIA extends javax.swing.JDialog {
         jLabel20.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel20.setText("Instrumentaliza Vendas");
 
+        jTxtQuantidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTxtQuantidadeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -166,9 +172,9 @@ public class jDlgCjrProdutoNovoIA extends javax.swing.JDialog {
                             .addComponent(jLabel3)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTxtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6))
-                                .addGap(192, 192, 192)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jTxtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(208, 208, 208)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel9)
                                     .addComponent(jTxtTipo4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -205,8 +211,8 @@ public class jDlgCjrProdutoNovoIA extends javax.swing.JDialog {
                     .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTxtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTxtTipo4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTxtTipo4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTxtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addComponent(jLabel20)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -246,6 +252,10 @@ public class jDlgCjrProdutoNovoIA extends javax.swing.JDialog {
     private void jTxtTipo4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtTipo4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTxtTipo4ActionPerformed
+
+    private void jTxtQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtQuantidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTxtQuantidadeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -307,7 +317,7 @@ public class jDlgCjrProdutoNovoIA extends javax.swing.JDialog {
     private javax.swing.JTextField jTxtDescricao;
     private javax.swing.JTextField jTxtNome;
     private javax.swing.JFormattedTextField jTxtPreco;
-    private javax.swing.JPasswordField jTxtQuantidade;
+    private javax.swing.JTextField jTxtQuantidade;
     private javax.swing.JTextField jTxtTipo4;
     // End of variables declaration//GEN-END:variables
 }

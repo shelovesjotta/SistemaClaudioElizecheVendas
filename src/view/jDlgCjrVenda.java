@@ -102,7 +102,7 @@ public class jDlgCjrVenda extends javax.swing.JDialog {
         jTxtNumVenda.setText(valor);
         String datenasc = Util.dateStr(cjrVenda.getCjrDataVenda());
         jFmtData.setText(datenasc);
-        jCboCliente.setSelectedItem(cjrVenda.getCjrIdVenda());
+        jCboCliente.setSelectedItem(cjrVenda.getCjrCliente());
         jCboFuncionario.setSelectedItem(cjrVenda.getCjrFuncionario());
         jTxtQuantidade.setText(cjrVenda.getCjrQuantidadeVenda());
         String saldo = Util.doubleStr(cjrVenda.getCjrValorTotal());

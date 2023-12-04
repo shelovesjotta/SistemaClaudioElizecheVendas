@@ -35,11 +35,6 @@ public class jDlgCjrFuncionarioNovoIA extends javax.swing.JDialog {
     public jDlgCjrFuncionarioNovoIA(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-         if (incluindo) {
-        setTitle("Inclusão de produtos");
-        } else {
-         setTitle("Alteração de produtos");
-        }
         setLocationRelativeTo(null);
         cjrFuncionario_DAO = new CjrFuncionario_DAO();
         try {
@@ -213,11 +208,13 @@ public class jDlgCjrFuncionarioNovoIA extends javax.swing.JDialog {
         cjrFuncionario = viewBean();
         cjrFuncionario_DAO = new CjrFuncionario_DAO();
         if (incluindo) {
+            setTitle("Inclusão de produtos");
             cjrFuncionario_DAO.insert(cjrFuncionario);
             Util.mensagem("Registro incluído com sucesso.");
             List lista = cjrFuncionario_DAO.listAll();
             jDlgCjrFuncionarioNovo.cjrFuncionarioControle.setList(lista);
         } else {
+            setTitle("Alteração de produtos");
             cjrFuncionario_DAO.update(cjrFuncionario);
             List lista = cjrFuncionario_DAO.listAll();
             jDlgCjrFuncionarioNovo.cjrFuncionarioControle.setList(lista);

@@ -100,44 +100,20 @@ public class CjrUsuarios_DAO extends DAO_Abstract {
 
     
     public Object buscarLogin(String apelido, String senha) {
-        CjrUsuarios cjrusuarios = null;
-
-        String url = "jdbc:mysql://10.7.0.51:33062/db_claudio_elizeche";
-        String user = "claudio_elizeche";
-        String password = "claudio_elizeche";
-
-//        String url = "jdbc:mysql://127.0.0.1:3306/db_claudio_elizeche";
-//        String user = "root";
-//        String password = "";
-        
+        CjrUsuarios cjrUsuarios = null;
+        session.beginTransaction();
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection cnt = (Connection) DriverManager.getConnection(url, user, password);
+            Criteria criteria = session.createCriteria(CjrUsuarios.class);
+            criteria.add(Restrictions.eq("mbsApelido", apelido));
+            criteria.add(Restrictions.eq("mbsSenha", senha));
 
-            String sql = "SELECT * FROM cjr_usuarios WHERE cjr_apelido = ? AND cjr_senha = ?";
-            PreparedStatement pstm = (PreparedStatement) cnt.prepareStatement(sql);
-            pstm.setString(1, apelido);
-            pstm.setString(2, senha);
-
-            ResultSet rs = pstm.executeQuery();
-
-            if (rs.next()) {
-                cjrusuarios = new CjrUsuarios();
-                cjrusuarios.setCjrApelido(rs.getString("apelido"));
-                cjrusuarios.setCjrSenha(rs.getString("senha"));
-            }
-
-            rs.close();
-            pstm.close();
-            cnt.close();
-
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(CjrUsuarios_DAO.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(CjrUsuarios_DAO.class.getName()).log(Level.SEVERE, null, ex);
+            cjrUsuarios = (CjrUsuarios) criteria.uniqueResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.getTransaction().commit();
         }
-
-        return cjrusuarios;
+        return cjrUsuarios;
     }
      
     public static void main(String[] args) {

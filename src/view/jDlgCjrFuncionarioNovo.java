@@ -158,18 +158,14 @@ public class jDlgCjrFuncionarioNovo extends javax.swing.JDialog {
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
         // TODO add your handling code here:
-        jDlgCjrFuncionarioNovoIA.setTitle("Alteração");
-        jDlgCjrFuncionarioNovoIA.setIncluindo(false);
-        jDlgCjrFuncionarioNovoIA.setVisible(true);
         int rowSel = jTable1.getSelectedRow();
         if (rowSel != -1) {
             CjrFuncionario cjrFuncionario = cjrFuncionarioControle.getBean(rowSel);
 
-            jDlgCjrFuncionarioNovoIA alterar = new jDlgCjrFuncionarioNovoIA(null, true);
-            alterar.beanView(cjrFuncionario);
-
-            alterar.setVisible(true);
-            
+            jDlgCjrFuncionarioNovoIA.setTitle("Alteração");
+            jDlgCjrFuncionarioNovoIA.setIncluindo(false);
+            jDlgCjrFuncionarioNovoIA.beanView(cjrFuncionario);
+            jDlgCjrFuncionarioNovoIA.setVisible(true);
         } else {
             Util.mensagem("Selecione um Registro para poder ser Alterado.");
         }

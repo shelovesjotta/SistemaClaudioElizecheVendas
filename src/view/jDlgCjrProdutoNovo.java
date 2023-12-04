@@ -161,12 +161,9 @@ public class jDlgCjrProdutoNovo extends javax.swing.JDialog {
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
         // TODO add your handling code here:
-  
-        jDlgCjrProdutoNovoIA.setTitle("Alteração");
-        jDlgCjrProdutoNovoIA.setIncluindo(false);
-        jDlgCjrProdutoNovoIA.setVisible(true);
         int rowSel = jTable1.getSelectedRow();
         if (rowSel != -1) {
+            jDlgCjrProdutoNovoIA.setTitle("Alteração");
             CjrProduto cjrprodutos = cjrProdutoControle.getBean(rowSel);
 
             jDlgCjrProdutoNovoIA alterar = new jDlgCjrProdutoNovoIA(null, true);
